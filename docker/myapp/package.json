@@ -1,0 +1,15 @@
+{
+  "name": "myapp",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node server.js",
+    "test": "mocha"
+  },
+  "engines": {
+    "node": "^4.6.1"
+  },
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}
