@@ -25,7 +25,7 @@ resource "aws_security_group" "ecs" {
   }
 }
 
-resource "aws_security_group" "alb" {
+resource "aws_security_group" "alb-myapp" {
   name        = "alb"
   description = "Allow traffic for alb"
   vpc_id      = "${module.base_vpc.vpc_id}"

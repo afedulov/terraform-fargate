@@ -1,13 +1,13 @@
 [
   {
-    "name": "myapp",
+    "name": "${NAME}",
     "image": "${REPOSITORY_URL}:latest",
     "networkMode": "awsvpc",
     "essential": true,
     "logConfiguration": {
         "logDriver": "awslogs",
         "options": {
-          "awslogs-group": "/ecs/myapp",
+          "awslogs-group": "${LOGS_GROUP}",
           "awslogs-region": "${AWS_REGION}",
           "awslogs-stream-prefix": "ecs"
         }

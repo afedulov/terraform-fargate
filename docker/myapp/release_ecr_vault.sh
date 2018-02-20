@@ -1,4 +1,5 @@
-NAME=myapp
+#NAME=myapp
+NAME=moduleapp
 AWS_VAULT_PROFILE=private
 
 docker build -t ${NAME} .
