@@ -1,3 +1,3 @@
 resource "aws_ecs_cluster" "fargate" {
-  name = "fargate"
+  name = "${var.APP_NAME}"
 }
