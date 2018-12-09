@@ -1,5 +1,5 @@
 resource "aws_ecr_repository" "myapp" {
-  name = "myapp"
+  name = "${var.APP_NAME}"
 }
 
 output "myapp-repo" {

@@ -1,5 +1,5 @@
 resource "aws_alb" "myapp" {
-  name = "myapp"
+  name = "${var.APP_NAME}"
   internal = false
 
   security_groups = [
@@ -14,21 +14,21 @@ resource "aws_alb" "myapp" {
 }
 
 resource "aws_alb_target_group" "myapp" {
-  name = "myapp"
-  protocol = "HTTP"
-  port = "3000"
+  name = "${var.APP_NAME}"
+  protocol = "${var.TG_PROTO}"
+  port = "${var.TG_LISTEN}"
   vpc_id = "${module.base_vpc.vpc_id}"
   target_type = "ip"
 
   health_check {
-    path = "/"
+    path = "${var.TG_HEALTHCHECK}"
   }
 }
 
 resource "aws_alb_listener" "myapp" {
   load_balancer_arn = "${aws_alb.myapp.arn}"
-  port = "80"
-  protocol = "HTTP"
+  port = "${var.ALB_LISTEN}"
+  protocol = "${var.ALB_PROTO}"
 
   default_action {
     target_group_arn = "${aws_alb_target_group.myapp.arn}"
